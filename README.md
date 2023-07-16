@@ -20,14 +20,14 @@ Launch an EC2 instance on AWS using the desired instance type and configuration.
 
 On your local machine, install kubectl to interact with the Kubernetes cluster. You can follow the official Kubernetes documentation to install kubectl for your specific operating system.
 
-For Linux
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+    For Linux
+    https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 3. Install kops
 
 On your local machine, install kops to create and manage the Kubernetes cluster. You can follow the official Kops documentation to install kops for your specific operating system.
 
-https://kops.sigs.k8s.io/getting_started/install/
+    https://kops.sigs.k8s.io/getting_started/install/
 
 4. Create S3 Bucket for Cluster State
 
@@ -37,7 +37,7 @@ Before creating the Kubernetes cluster using Kops, you need to set up an S3 buck
 
 Use kops to create a Kubernetes cluster on AWS. Use the following command as an example:
 
-kops create cluster --name=mycluster.k8s.local --state=s3://your-bucket-name --zones=us-east-1a,us-east-1b --master-size=t2.micro --node-count=3 --node-size=t2.micro
+    kops create cluster --name=mycluster.k8s.local --state=s3://your-bucket-name --zones=us-east-1a,us-east-1b --master-size=t2.micro --node-count=3 --node-size=t2.micro
 
 Replace mycluster.k8s.local with your desired cluster name and s3://your-bucket-name with the S3 bucket name where Kops will store the cluster state.
 
@@ -45,22 +45,22 @@ Replace mycluster.k8s.local with your desired cluster name and s3://your-bucket-
 
 After creating the cluster, you may need to update it with the desired configuration. Use the following command as an example:
 
-kops update cluster --name=mycluster.k8s.local --state=s3://your-bucket-name --yes --admin
+    kops update cluster --name=mycluster.k8s.local --state=s3://your-bucket-name --yes --admin
 
 7. Configure Kubernetes Deployment
 
 Clone this directory 
 
-cd kubernetes
-use 
-kubectl apply -f  app/
-kubectl apply -f  db/
-kubectl apply -f  memcache/
-kubectl apply -f  tomapp/
+    cd kubernetes
+    use 
+    kubectl apply -f  app/
+    kubectl apply -f  db/
+    kubectl apply -f  memcache/
+    kubectl apply -f  tomapp/
 
-Check 
-kubectl get pods ### All pods must be in Running state
-Kubectl get services ### Check all services are configured and running 
+    Check 
+    kubectl get pods ### All pods must be in Running state
+    Kubectl get services ### Check all services are configured and running 
 
 Conclusion
 
